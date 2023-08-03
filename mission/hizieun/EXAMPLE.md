@@ -17,4 +17,27 @@ Go언어로 작성된 리눅스 컨테이너 기반으로 하는 오픈소스 �
 <p align="center"><img src="img/docker_lifecycle.jpeg" height="150px" width="500px"></p>  
 
 
-4. [실전 미션] 도커 설치하기 (참조: 도커 공식 설치 페이지)
+4. [실전 미션] 도커 설치하기 
+
+도커 컨테이너 실행 시키기  
+i. 나의 사전 미션 폴더를 만들고 해당 폴더로 이동합니다.  
+cd path/to/docker-pro-wanted/mission  
+mkdir hizieun    
+cd hizieun    
+
+ii. "Hello, World!"를 출력하는 도커 파일을 만듭니다.
+vim Dockerfile
+i를 눌러 편집모드로 전환 후 아래 내용을 작성합니다:
+
+FROM alpine:latest  
+CMD ["echo", "Hello, World"]  
+ESC를 눌러 명령모드로 전환 후, :wq 입력, enter키를 눌러 Dockerfile을 생성합니다.
+
+iii. 도커 파일로 도커 이미지를 빌드합니다.  
+docker build -t hello-world .  
+(위 명령어의 의미는 "현재 디렉토리에서 Dockerfile을 읽어 도커 이미지를 만들고, 해당 이미지에 hello-world라는 tag 를 붙혀라" 입니다.)
+
+iv. 빌드한 도커 이미지를 실행합니다.  
+docker run hello-world  
+이 명령어는 hello-world라는 이름의 도커 이미지를 실행시켜 "Hello, World!"를 출력합니다.
+<p align="center"><img src="img/result_hello-world.png"></p>  
